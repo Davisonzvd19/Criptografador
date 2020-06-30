@@ -1,0 +1,107 @@
+
+<HEAD>
+
+<SCRIPT LANGUAGE="JavaScript">
+
+var str_in;
+var str_out = "";
+var num_in;
+var num_out = "";
+var e = "Digite seu Texto";
+
+function str_to_num(form) {
+num_out = "";
+if(form.input.value == "") alert(e);
+else {
+str_in = escape(form.input.value);
+for(i = 0; i < str_in.length; i++) {
+num_out += str_in.charCodeAt(i) - 23;
+}
+form.output.value = num_out;
+form.input.value = "";
+   }
+}
+
+function num_to_str(form) {
+str_out = "";
+if(form.output.value == "") alert(e)
+else {
+num_out = form.output.value;
+for(i = 0; i < num_out.length; i += 2) {
+num_in = parseInt(num_out.substr(i,[2])) + 23;
+num_in = unescape('%' + num_in.toString(16));
+str_out += num_in;
+}
+form.input.value = unescape(str_out);
+form.output.value = "";
+   }
+}
+//-->
+</script>
+</HEAD>
+
+
+
+<BODY>
+
+<center>
+<form name=encryptform>
+<table>
+<tr>
+<td align=center><font face="Andale Mono, monospace">Texto Original</font></td>
+<td> </td>
+<td align=center><font face="Andale Mono, monospace">Texto Encriptado</font></td>
+</tr>
+<tr>
+<td align=center>
+<textarea rows="14" name="input" cols="40" style="font-family: Verdana"></textarea></td>
+<td align=center>
+<input type=button value="Criptografar" onClick="javascript:str_to_num(this.form)"><br>
+<br>
+
+</td>
+<td align=center>
+<textarea rows="14" name="output" cols="40" style="font-family: Verdana"></textarea></td>
+</tr>
+</table>
+</form>
+</center>
+<form method="POST" action="--WEBBOT-SELF--">
+<p align="center">
+  <font face="Impact, fantasy" fonts style="color: blue">Criptografador Numérico - Segurança para seus textos e
+  senhas.</font></p>
+</form>
+
+</script>
+</HEAD>
+
+
+
+<BODY>
+
+<center>
+<form name=encryptform>
+<table>
+<tr>
+<td align=center><font face="Andale Mono, monospace">Texto Encriptado</font></td>
+<td> </td>
+<td align=center><font face="Andale Mono, monospace">Texto Descriptografado</font></td>
+</tr>
+<tr>
+<td align=center>
+<textarea rows="14" name="output" cols="40" style="font-family: Verdana"></textarea></td>
+<td align=center>
+<input type=button value="Descriptografar" onClick="javascript:num_to_str(this.form)"><br>
+<br>
+
+</td>
+<td align=center>
+<textarea rows="14" name="input" cols="40" style="font-family: Verdana"></textarea></td>
+</tr>
+</table>
+</form>
+</center>
+<form method="POST" action="--WEBBOT-SELF--">
+<p align="center">
+  <font face="Verdana" style="color: grey">Davison Azevedo</font></p>
+</form>
